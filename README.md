@@ -71,7 +71,7 @@ Properties needed to run this application can be found [application.yaml](src/ma
 mvn spring-boot:run
 ````
 ### From IntelliJ IDEA
-Run the application from the main function in [SalarySavingsApplication.kt](src/main/kotlin/sb1/developer/salarysavings/SalarySavingsApplication.kt)
+Run the application from the main function in [Sb1OpenApiTutorialApplication.kt](src/main/kotlin/sb1/developer/openapi/Sb1OpenApiTutorialApplication.kt)
 
 ### Oauth Token
 Running the application will generate an oauth token used to make request to retrieve data. 
