@@ -4,6 +4,7 @@ import java.util.Properties
 
 class RestClientConfiguration {
     val apiUrl: String
+    val authUrl: String
     val clientId: String
     val clientSecret: String
     val redirectUrl: String
@@ -16,6 +17,7 @@ class RestClientConfiguration {
     init {
         props.load(RestClientConfiguration::class.java.classLoader.getResourceAsStream("application.yaml"))
         apiUrl = props.getProperty("api_url")
+        authUrl = props.getProperty("api_auth_url")
         clientId = props.getProperty("client_id")
         redirectUrl = props.getProperty("redirect_url")
         clientSecret = props.getProperty("client_secret")

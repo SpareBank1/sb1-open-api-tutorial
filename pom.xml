@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.0.RELEASE</version>
+		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>sb1.developer</groupId>
@@ -15,8 +15,8 @@
 	<description>SpareBank1 Open API tutorial</description>
 
 	<properties>
-		<java.version>1.8</java.version>
-		<kotlin.version>1.3.72</kotlin.version>
+		<java.version>21</java.version>
+		<kotlin.version>1.9.23</kotlin.version>
 	</properties>
 
 	<dependencies>
@@ -35,12 +35,12 @@
 		<dependency>
 			<groupId>com.konghq</groupId>
 			<artifactId>unirest-java</artifactId>
-			<version>3.7.02</version>
+			<version>3.14.5</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>2.8.5</version>
+			<version>2.10.1</version>
 		</dependency>
 
 		<dependency>

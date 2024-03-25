@@ -4,12 +4,13 @@ import kong.unirest.HttpResponse
 import kong.unirest.Unirest
 import kong.unirest.Unirest.get
 import org.apache.http.HttpStatus
+import java.net.URLEncoder
 
 class RestClient(private val configuration: RestClientConfiguration) {
 
     fun getToken(): String {
         print("Sending Request to /oauth/token ")
-        val response = Unirest.post(configuration.apiUrl + "/oauth/token")
+        val response = Unirest.post(configuration.authUrl + "/oauth/token")
                 .header("Cache-Control", "no-cache")
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .field("grant_type", getGrantType())
@@ -30,8 +31,8 @@ class RestClient(private val configuration: RestClientConfiguration) {
     }
 
     fun getDefaultAccount(oauthToken: String): String {
-        print("Sending Request to /open/personal/banking/accounts/default ")
-        val response = get(configuration.apiUrl + "/open/personal/banking/accounts/default")
+        print("Sending Request to /personal/banking/accounts/default ")
+        val response = get(configuration.apiUrl + "/personal/banking/accounts/default")
                 .header("Authorization", "Bearer $oauthToken")
                 .header("Cache-Control", "no-cache")
                 .header("Content-Type", "application/vnd.sparebank1.v1+json")
@@ -41,12 +42,13 @@ class RestClient(private val configuration: RestClientConfiguration) {
     }
 
     fun getAllTransaction(accountId: String, oauthToken: String): String {
-        print("Sending Request to /open/personal/banking/accounts/$accountId/transactions ")
-        val response = get(configuration.apiUrl + "/open/personal/banking/accounts/{accountId}/transactions")
-                .routeParam("accountId", accountId)
+        print("Sending Request to ${configuration.apiUrl}/personal/banking/transactions?accountKey=$accountId")
+        val encodedAccountId = URLEncoder.encode(accountId, "UTF-8")
+        val response = get("${configuration.apiUrl}/personal/banking/transactions")
                 .header("Authorization", "Bearer $oauthToken")
                 .header("Cache-Control", "no-cache")
                 .header("Content-Type", "application/vnd.sparebank1.v1+json")
+                .queryString("accountKey", encodedAccountId)
                 .asString()
         return parseResponse(response)
     }

@@ -23,13 +23,13 @@ class AccountDataExample {
         prettyPrintJson(defaultResponse)
 
         val defaultAccount = Gson().fromJson(defaultResponse, AccountDto::class.java)
-        findNewestTransactions(defaultAccount.id)
+        findNewestTransactions(defaultAccount.key)
     }
 
     fun findNewestTransactions(accountId: String) {
         val allTransaction = restClient.getAllTransaction(accountId, getOauthToken())
         val fromJson = Gson().fromJson(allTransaction, TransactionsDto::class.java)
-        val newestTransactions = fromJson.transactions?.take(NUMBER_OF_TRANSACTIONS)
+        val newestTransactions = fromJson.list?.take(NUMBER_OF_TRANSACTIONS)
         if (!newestTransactions.isNullOrEmpty()) {
             println("Printing out $NUMBER_OF_TRANSACTIONS transactions:")
             newestTransactions.forEach { prettyPrintObject(it) }
