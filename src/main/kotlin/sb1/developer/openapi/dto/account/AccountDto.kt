@@ -4,12 +4,12 @@ import sb1.developer.openapi.dto.LinksDto
 import sb1.developer.openapi.dto.MoneyDto
 
 data class AccountDto(
-        val id: String,
-        val accountNumber: AccountNumberDto,
+        val key: String,
+        val accountNumber: String,
         val name: String? = null,
         val description: String? = null,
-        val balance: MoneyDto,
-        val availableBalance: MoneyDto,
+        val balance: Number,
+        val availableBalance: Number,
         val owner: CustomerDto,
         val product: String,
         val type: String,

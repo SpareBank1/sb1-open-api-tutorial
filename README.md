@@ -2,7 +2,7 @@
 
 ## Introduction
 This application shows how one sets up a connection to the SpareBank1 API, getting an oauth token and retrieving 
-data from a sandbox or production environment.
+data from production environment.
  
 The example in this application sends a request to get a default account. Then the application sends another request to 
 get all transaction for an account and print out the newest transactions.  
@@ -11,30 +11,18 @@ get all transaction for an account and print out the newest transactions.
 ```` 
 mvn clean install
 ````
-## Set up for sandbox environment  
-### 1. Register application
-Go to the sandbox environment [developersparebank1](https://developersparebank1.no/getting-started). Create a user and 
-register your application.
-
-### 2. Configure properties for sandbox
-Properties needed to run this application can be found [application.yaml](src/main/resources/application.yaml)
-
-    api_url:  https://developer-api.sparebank1.no
-    client_id: found where you registered you application
-    client_secret: found where you registered you application
-    authorization_code: Only used in production. Leave it blank for sandbox
-    
-## Set up for production environment
+  
+## Set up for environment
 ### 1. Register Application
-Go to [Personlig Klient](https://developersparebank1.no/personlig-klient) and choose the bank that you are a customer of
-and register the application there. If you're not a customer in any of the SpareBank1 banks, then create a customer 
+Go to [Personlig Klient](https://developer.sparebank1.no/personlig-klient) and choose the bank that you are a customer of
+and register the application there. If you're not a customer in any of the SpareBank1 banks, then you need to create a customer 
 relation here https://www.sparebank1.no. 
 
 ### 2. Get an authorization code
 In the production environment, to get an oauth token you need an authorization code. To generate an authorization code 
 open the following in a browser: 
 
-    https://api.sparebank1.no/oauth/authorize
+    https://api-auth.sparebank1.no/oauth/authorize
     ?finInst=fid-smn
     &client_id=0f603d09-636f-4b3e-96fd-d56dc7d1a1a3
     &state=3138229

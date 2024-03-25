@@ -1,5 +1,6 @@
-api_url: https://developer-api.sparebank1.no
-client_id:
-client_secret:
-redirect_url:
-authorization_code:
+api_url: https://api.sparebank1.no
+api_auth_url: https://api-auth.sparebank1.no
+client_id: <PUT YOUR CLIENT ID HERE>
+client_secret: <PUT YOUR CLIENT SECRET HERE>
+redirect_url: http://localhost:8080
+authorization_code: <PUT AUTHORIZATION CODE HERE>
