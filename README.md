@@ -64,6 +64,10 @@ Run the application from the main function in [Sb1OpenApiTutorialApplication.kt]
 ### Oauth Token
 Running the application will generate an oauth token used to make request to retrieve data. 
 
-The oauth token is valid for 6 months and can be reused when making request to retrieve data. To make it simple, this 
+The oauth token is valid for 10 minutes and can be reused when making request to retrieve data. To make it simple, this 
 application saves the token to a file called [token.txt](token.txt). When you rerun this application, the token is read
-from the file. If you want to retest the request to get an oauth token, delete the value in [token.txt](token.txt). 
+from the file. If you want to retest the request to get an oauth token, delete the value in [token.txt](token.txt).
+
+### Refresh token
+Refresh token is not implemented in this application. To get a new oauth token, you need to repeat Step 2 and make a new bankId login to issue a new.
+The token endpoint returns a refresh token together with the access token, that can be used to get a new oauth token. The refresh token is valid for 30 days.
